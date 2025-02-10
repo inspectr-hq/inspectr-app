@@ -1,0 +1,25 @@
+{
+  "name": "@request-inspector/app",
+  "description": "Standalone Request Inspector app",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "dist/index.html",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^4.2.0",
+    "@tailwindcss/vite": "^4.0.4",
+    "@request-inspector/ui": "/Users/tim.haselaars/Sites/req-inspector/request-inspector-ui",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.2.5",
+    "tailwindcss": "^4.0.4"
+  }
+}
