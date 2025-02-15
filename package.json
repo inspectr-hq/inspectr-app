@@ -2,7 +2,7 @@
   "name": "@inspectr/app",
   "description": "Standalone Inspectr app for inspecting API requests & Webhook events.",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Tim Haselaars",
   "homepage": "https://github.com/thim81/inspectr#readme",
   "bugs": "https://github.com/thim81/inspectr-app/issues",
