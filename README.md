@@ -27,8 +27,8 @@ Then, open your browser and navigate to http://localhost:4004 (or the port speci
 
 ## Contributing
 
-Contributions are welcome! If you have ideas, improvements, or bug fixes, please open an issue or submit a pull request via the [GitHub repository](https://github.com/thim81/inspectr-app).
+Contributions are welcome! If you have ideas, improvements, or bug fixes, please open an issue or submit a pull request via the [GitHub repository](https://github.com/inspectr-hq/inspectr-app).
 
 ## Bugs & Issues
 
-Found a bug or have a feature request? Please report it via the [issue tracker](https://github.com/thim81/inspectr-app/issues).
+Found a bug or have a feature request? Please report it via the [issue tracker](https://github.com/inspectr-hq/inspectr-app/issues).

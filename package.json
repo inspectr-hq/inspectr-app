@@ -4,11 +4,11 @@
   "type": "module",
   "version": "0.0.5",
   "author": "Tim Haselaars",
-  "homepage": "https://github.com/thim81/inspectr#readme",
-  "bugs": "https://github.com/thim81/inspectr-app/issues",
+  "homepage": "https://github.com/inspectr-hq/inspectr#readme",
+  "bugs": "https://github.com/inspectr-hq/inspectr-app/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thim81/inspectr-app.git"
+    "url": "git+https://github.com/inspectr-hq/inspectr-app.git"
   },
   "main": "dist/index.html",
   "files": [
