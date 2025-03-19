@@ -33,6 +33,21 @@ fs.watch(nodeModulesPath, { recursive: true }, (eventType, filename) => {
           return;
         }
         console.log(`Build successful: ${stdout}`);
+
+        // Relative paths here:
+        const sourcePath = './dist/*';
+        const destinationPath = '../inspectr-proxy/app/';
+
+        exec(`cp -r ${sourcePath} ${destinationPath}`, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Copy failed: ${error}`);
+            if (stderr) {
+              console.error(`Copy stderr: ${stderr}`);
+            }
+            return;
+          }
+          console.log(`Build successful: ${stdout}`);
+        });
       });
     }, 1000);
   }
