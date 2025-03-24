@@ -1,8 +1,8 @@
 # Inspectr App
 
-Inspectr App is a standalone application, powering [Inspectr](https://github.com/thim81/inspectr#readme) and built using Inspectr UI components.
+Inspectr App is a standalone application, powering [Inspectr](https://github.com/inspectr-hq/inspectr#readme) and built using Inspectr UI components.
 
-<img src="https://raw.githubusercontent.com/thim81/inspectr/main/assets/inspectr-app.png" alt="Request Inspectr" width="80%">
+<img src="https://raw.githubusercontent.com/inspectr-hq/inspectr/main/assets/inspectr-app.png" alt="Request Inspectr" width="80%">
 
 ## Installation
 
