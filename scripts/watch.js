@@ -36,7 +36,7 @@ fs.watch(nodeModulesPath, { recursive: true }, (eventType, filename) => {
 
         // Relative paths here:
         const sourcePath = './dist/*';
-        const destinationPath = '../inspectr-proxy/app/';
+        const destinationPath = '../go/inspectr-proxy/app/';
 
         exec(`cp -r ${sourcePath} ${destinationPath}`, (error, stdout, stderr) => {
           if (error) {
