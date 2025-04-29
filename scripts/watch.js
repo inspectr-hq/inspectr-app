@@ -49,7 +49,7 @@ fs.watch(nodeModulesPath, { recursive: true }, (eventType, filename) => {
           console.log(`Build successful: ${stdout}`);
         });
       });
-    }, 1000);
+    }, 5000);
   }
 });
 
