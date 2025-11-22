@@ -18,7 +18,9 @@
     "dev": "astro dev",
     "watch": "node scripts/watch.js",
     "build": "astro build",
+    "build:debug": "astro build --mode development",
     "build-copy": "node scripts/build-copy.js",
+    "build-copy:debug": "node scripts/build-copy.js debug",
     "preview": "astro preview",
     "astro": "astro",
     "test": "echo 'test completed'",
@@ -44,12 +46,12 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.4.0",
-    "@inspectr/ui": "^1.3.0",
+    "@astrojs/react": "^4.4.2",
+    "@inspectr/ui": "^1.4.0",
     "@tailwindcss/vite": "^4.1.3",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
-    "astro": "^5.14.6",
+    "astro": "^5.16.0",
     "tailwindcss": "^3.4.17"
   },
   "publishConfig": {

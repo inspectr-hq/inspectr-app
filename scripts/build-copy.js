@@ -2,6 +2,8 @@ import { exec } from 'child_process';
 import path from 'path';
 
 let buildInProgress = false;
+const isDebug = process.argv[2] === 'debug';
+const buildCommand = isDebug ? 'npm run build:debug' : 'npm run build';
 
 const runBuildAndCopy = () => {
   if (buildInProgress) {
@@ -12,7 +14,7 @@ const runBuildAndCopy = () => {
   buildInProgress = true;
   console.log('Starting build...');
 
-  exec('npm run build', (error, stdout, stderr) => {
+  exec(buildCommand, (error, stdout, stderr) => {
     buildInProgress = false;
 
     if (error) {
