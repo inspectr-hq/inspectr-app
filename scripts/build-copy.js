@@ -32,7 +32,7 @@ const runBuildAndCopy = () => {
     // Resolve paths relative to the current working directory where this script is run
     // Assuming this script is run from the same directory as the original watcher script
     const sourcePath = path.resolve('./dist/*');
-    const destinationPath = path.resolve('../go/inspectr-proxy/app/');
+    const destinationPath = path.resolve('../../go/inspectr-proxy/app/');
 
     exec(`cp -r ${sourcePath} ${destinationPath}`, (error, stdout, stderr) => {
       if (error) {
