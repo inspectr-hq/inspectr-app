@@ -6,6 +6,15 @@ import '@inspectr/ui/style.css';
 <!doctype html>
 <html lang="en">
 	<head>
+		<script is:inline>
+			// Set base URL dynamically based on current path
+			// This must run BEFORE any resources are loaded
+			const base = document.createElement('base');
+			const path = window.location.pathname;
+			// Ensure path ends with /
+			base.href = path.endsWith('/') ? path : path + '/';
+			document.head.appendChild(base);
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/icon" href="/favicon.ico" />

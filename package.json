@@ -47,11 +47,12 @@
   },
   "devDependencies": {
     "@astrojs/react": "^4.4.2",
-    "@inspectr/ui": "^1.8.1",
+    "@inspectr/ui": "file:../inspectr-ui",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
     "astro": "^5.17.2",
+    "astro-relative-links": "^0.4.2",
     "tailwindcss": "^3.4.17"
   },
   "publishConfig": {
