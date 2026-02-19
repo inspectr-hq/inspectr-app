@@ -72,6 +72,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GH_PAT }}
           branch: chore/bump-repo-${{ steps.version.outputs.version }}
           title: "chore: bump repo to ${{ steps.version.outputs.version }}"
           commit-message: "chore: bump repo to ${{ steps.version.outputs.version }}"
