@@ -39,6 +39,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Restore lockfile
+        run: git checkout package-lock.json
+
       - name: Publish via np
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
