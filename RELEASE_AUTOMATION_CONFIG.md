@@ -2,7 +2,7 @@
 
 ## Trigger source
 - This repository (`inspectr-app`) listens for `repository_dispatch` event type `repo-released`.
-- Source repository expected in payload: `thim81/inspectr-ui`.
+- Source repository expected in payload: `inspectr-hq/inspectr-ui`.
 
 ## Dependency bump target
 - Dependency name: `@inspectr/ui`
