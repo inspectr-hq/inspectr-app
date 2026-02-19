@@ -2,6 +2,11 @@ name: Publish package to npm
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version bump (patch, minor, major, prepatch, preminor, premajor, prerelease) or explicit version (e.g. 1.9.0)'
+        required: true
+        default: 'patch'
 
 permissions:
   contents: write
@@ -15,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -22,11 +28,16 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Configure git
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Publish using release script
+      - name: Publish via np
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run release -- --yes
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: npx np ${{ inputs.version }} --branch main --no-tests
