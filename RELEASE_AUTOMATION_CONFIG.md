@@ -15,3 +15,9 @@
 - Branch format: `chore/bump-repo-x-<version>`
 - Commit/title format: `chore: bump repo-x to <version>`
 - Also updates `package-lock.json` via `npm install`
+
+## Manual npm publish
+- Workflow file: `.github/workflows/publish-npm.yml`
+- Trigger: manual (`workflow_dispatch`) from the `main` branch
+- Flow used: `npm run release -- --yes` (reuses the existing release script)
+- Required secret: `NPM_TOKEN` (npm automation token)
