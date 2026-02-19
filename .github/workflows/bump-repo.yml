@@ -2,7 +2,7 @@ name: Bump inspectr-ui dependency
 
 on:
   repository_dispatch:
-    types: [repo-x-released]
+    types: [repo-released]
 
 permissions:
   contents: write
