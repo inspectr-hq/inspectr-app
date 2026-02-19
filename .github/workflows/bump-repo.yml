@@ -1,0 +1,83 @@
+name: Bump inspectr-ui dependency
+
+on:
+  repository_dispatch:
+    types: [repo-released]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Normalize version
+        id: version
+        env:
+          VERSION_RAW: ${{ github.event.client_payload.version }}
+        run: |
+          set -euo pipefail
+          VERSION="${VERSION_RAW#v}"
+          if [ -z "$VERSION" ]; then
+            echo "Payload version is empty"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Update @inspectr/ui in package.json
+        env:
+          DEP_NAME: '@inspectr/ui'
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          node -e '
+          const fs = require("fs");
+          const path = "package.json";
+          const depName = process.env.DEP_NAME;
+          const version = process.env.VERSION;
+
+          const pkg = JSON.parse(fs.readFileSync(path, "utf8"));
+          let updated = false;
+
+          if (pkg.dependencies && Object.prototype.hasOwnProperty.call(pkg.dependencies, depName)) {
+            pkg.dependencies[depName] = `^${version}`;
+            updated = true;
+          }
+
+          if (!updated && pkg.devDependencies && Object.prototype.hasOwnProperty.call(pkg.devDependencies, depName)) {
+            pkg.devDependencies[depName] = `^${version}`;
+            updated = true;
+          }
+
+          if (!updated) {
+            console.error(`Dependency ${depName} was not found in dependencies or devDependencies`);
+            process.exit(1);
+          }
+
+          fs.writeFileSync(path, JSON.stringify(pkg, null, 2) + "\n");
+          '
+
+      - name: Update lockfile
+        run: npm install
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/bump-repo-${{ steps.version.outputs.version }}
+          title: chore: bump repo to ${{ steps.version.outputs.version }}
+          commit-message: chore: bump repo to ${{ steps.version.outputs.version }}
+          labels: dependencies
+          body: |
+            Bumps `@inspectr/ui` to `${{ steps.version.outputs.version }}`.
+
+            Release: ${{ github.event.client_payload.release_url }}
+            Source repo: `${{ github.event.client_payload.repo }}`
