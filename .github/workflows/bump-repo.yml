@@ -72,9 +72,9 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
-          branch: chore/bump-repo-x-${{ steps.version.outputs.version }}
-          title: chore: bump repo-x to ${{ steps.version.outputs.version }}
-          commit-message: chore: bump repo-x to ${{ steps.version.outputs.version }}
+          branch: chore/bump-repo-${{ steps.version.outputs.version }}
+          title: chore: bump repo to ${{ steps.version.outputs.version }}
+          commit-message: chore: bump repo to ${{ steps.version.outputs.version }}
           labels: dependencies
           body: |
             Bumps `@inspectr/ui` to `${{ steps.version.outputs.version }}`.

@@ -12,8 +12,8 @@
   - fail with an explicit error if not found in either section
 
 ## PR behavior
-- Branch format: `chore/bump-repo-x-<version>`
-- Commit/title format: `chore: bump repo-x to <version>`
+- Branch format: `chore/bump-repo-<version>`
+- Commit/title format: `chore: bump repo to <version>`
 - Also updates `package-lock.json` via `npm install`
 
 ## Manual npm publish
