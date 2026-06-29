@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^6.0.0",
-    "@inspectr/ui": "^1.9.2",
+    "@inspectr/ui": "^1.9.3",
     "@tailwindcss/vite": "^4.3.1",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
